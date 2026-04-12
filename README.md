@@ -1,6 +1,6 @@
 # KRNLx OS
 
-![KRNLx Logo](./main/krnlx.png)
+![KRNLx Logo](./krnlx.png)
 
 > A modern, efficient, and customizable Ubuntu-based operating system built for performance, control, and flexibility.
 
