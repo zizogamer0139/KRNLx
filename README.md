@@ -171,7 +171,7 @@ Custom Boot Screen
 ---
 
 ## 👥 Contributors
-Your Name – Creator of KRNLx
+Zizo – Creator of KRNLx
 
 ---
 
