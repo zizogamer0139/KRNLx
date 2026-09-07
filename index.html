@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project KRNL</title>
+
+    <meta
+        name="description"
+        content="Project KRNL — an operating system project built from the ground up."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #0f0f0f;
+            color: #e6e6e6;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            width: min(900px, 90%);
+            margin: auto;
+        }
+
+        /* Header */
+
+        header {
+            border-bottom: 1px solid #282828;
+            background: #0f0f0f;
+        }
+
+        .nav {
+            min-height: 62px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 19px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            color: #888;
+            font-weight: normal;
+        }
+
+        nav a {
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 22px;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 110px 0 100px;
+            border: 0;
+        }
+
+        .label {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(48px, 10vw, 82px);
+            line-height: 1;
+            letter-spacing: -4px;
+        }
+
+        .hero h1 span {
+            color: #777;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 18px;
+            margin: 25px 0 0;
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 16px;
+            border: 1px solid #3a3a3a;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 14px;
+            margin-right: 7px;
+        }
+
+        .button:hover {
+            background: #1a1a1a;
+        }
+
+        /* Sections */
+
+        section {
+            padding: 70px 0;
+            border-top: 1px solid #252525;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-size: 27px;
+        }
+
+        p {
+            color: #aaa;
+        }
+
+        /* About */
+
+        .text {
+            max-width: 700px;
+        }
+
+        /* Current */
+
+        .current {
+            border: 1px solid #292929;
+            background: #141414;
+            padding: 24px;
+            margin-top: 25px;
+        }
+
+        .current-title {
+            font-size: 13px;
+            color: #777;
+            text-transform: uppercase;
+            margin-bottom: 7px;
+        }
+
+        .current h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .current p {
+            margin-bottom: 0;
+        }
+
+        /* History */
+
+        .history {
+            display: grid;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .history-item {
+            border: 1px solid #292929;
+            padding: 22px;
+            background: #141414;
+        }
+
+        .history-item h3 {
+            margin: 0 0 6px;
+        }
+
+        .history-item p {
+            margin: 0;
+        }
+
+        /* KRNLx */
+
+        .future {
+            border: 1px solid #383838;
+            padding: 30px;
+            background: #141414;
+            margin-top: 25px;
+        }
+
+        .future .small {
+            color: #777;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .future h3 {
+            margin: 0;
+            font-size: 30px;
+        }
+
+        .future p {
+            max-width: 650px;
+        }
+
+        .coming {
+            display: inline-block;
+            margin-top: 10px;
+            border: 1px solid #444;
+            padding: 7px 11px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* Links */
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 25px;
+        }
+
+        .link {
+            border: 1px solid #333;
+            padding: 10px 14px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .link:hover {
+            background: #191919;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid #252525;
+            padding: 28px 0;
+            color: #666;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .nav {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-right: 18px;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+
+        <div class="brand">
+            Project KRNL <span>/ OS</span>
+        </div>
+
+        <nav>
+            <a href="#about">About</a>
+            <a href="#development">Development</a>
+            <a href="#future">Future</a>
+            <a href="https://github.com/zizogamer0139/KRNLx">
+                GitHub
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <div class="container">
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="label">
+                AN OPERATING SYSTEM PROJECT
+            </div>
+
+            <h1>
+                Project KRNL<span>.</span>
+            </h1>
+
+            <p>
+                An operating system project that started small
+                and keeps getting bigger.
+            </p>
+
+            <div class="buttons">
+
+                <a
+                    class="button"
+                    href="https://github.com/zizogamer0139/KRNLx">
+                    View GitHub
+                </a>
+
+                <a
+                    class="button"
+                    href="#about">
+                    About the project
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section id="about">
+
+            <div class="text">
+
+                <h2>What is Project KRNL?</h2>
+
+                <p>
+                    Project KRNL is an operating system project
+                    focused on building and experimenting with
+                    the different parts of an operating system.
+                </p>
+
+                <p>
+                    The project has gone through several stages.
+                    What started as KRNL-DOS eventually grew into
+                    something much larger.
+                </p>
+
+                <p>
+                    The current development version is internally
+                    using the codename <strong>KRNL 1</strong>.
+                    KRNL 1 is a codename, not the final name of
+                    the project.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEVELOPMENT -->
+
+        <section id="development">
+
+            <h2>Current development</h2>
+
+            <p>
+                KRNL is currently being developed toward a
+                graphical operating system.
+            </p>
+
+            <div class="current">
+
+                <div class="current-title">
+                    Current codename
+                </div>
+
+                <h3>KRNL 1</h3>
+
+                <p>
+                    The current stage of development and the
+                    foundation for what comes next.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- HISTORY -->
+
+        <section>
+
+            <h2>Project history</h2>
+
+            <div class="history">
+
+                <div class="history-item">
+
+                    <h3>KRNL-DOS</h3>
+
+                    <p>
+                        The original alpha version of KRNL.
+                        It was the starting point for the project.
+                    </p>
+
+                </div>
+
+                <div class="history-item">
+
+                    <h3>KRNL 1</h3>
+
+                    <p>
+                        The current development codename.
+                        This stage introduces the next direction
+                        of the project.
+                    </p>
+
+                </div>
+
+                <div class="history-item">
+
+                    <h3>KRNLx</h3>
+
+                    <p>
+                        The version that comes after KRNL 1.
+                        This is planned to be the final and most
+                        complete version of KRNL.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FUTURE -->
+
+        <section id="future">
+
+            <h2>What's next?</h2>
+
+            <div class="future">
+
+                <div class="small">
+                    Coming soon
+                </div>
+
+                <h3>KRNLx</h3>
+
+                <p>
+                    KRNLx is planned to be the last version of
+                    the KRNL project and the biggest version yet.
+                </p>
+
+                <p>
+                    More information will be published as
+                    development gets closer.
+                </p>
+
+                <div class="coming">
+                    KRNLx — COMING SOON
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LINKS -->
+
+        <section>
+
+            <h2>Project</h2>
+
+            <div class="links">
+
+                <a
+                    class="link"
+                    href="https://github.com/zizogamer0139/KRNLx">
+                    Source code
+                </a>
+
+                <a
+                    class="link"
+                    href="https://github.com/zizogamer0139/KRNLx/issues">
+                    Issues
+                </a>
+
+                <a
+                    class="link"
+                    href="https://github.com/zizogamer0139/KRNLx/releases">
+                    Releases
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<footer>
+    <div class="container">
+        Project KRNL · 2026
+    </div>
+</footer>
+
+</body>
+</html>
